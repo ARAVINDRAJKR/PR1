@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+{%for i in pages%}
+{{i.title}}<br>
+{{i.desc}}<br>
+{%endfor%}
+<div>
+    {%if pages.has_previous%}
+    <a href="?page=1">first</a>
+    <a href="?page={{pages.previous_page_number}}">previous</a>
+    {%endif%}
+    page{{pages.number}}of{{pages.paginator.num_pages}}
+    {%if pages.has_next%}
+    <a href="?page={{pages.next_page_number}}">next </a>
+    <a href="?page={{pages.paginator.num_pages}}">last </a>
+
+
+    {%endif%}
+</div>
+
+</body>
+</html>
